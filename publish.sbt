@@ -19,7 +19,7 @@ ThisBuild / developers := List(
   )
 )
 
-ThisBuild / credentials += Credentials(Path(".") / ".." / "sonatype_credentials")
+ThisBuild / credentials += Credentials(file(sys.env.getOrElse("SONATYPE_CREDENTIALS", "sonatype_credentials")))
 ThisBuild / description := "Some description about your project."
 ThisBuild / licenses := Seq("GPL-3.0" -> url("https://opensource.org/licenses/GPL-3.0"))
 ThisBuild / homepage := Some(url("https://gitlab.com/colisweb-open-source/scala/approvals-scala"))
@@ -29,4 +29,4 @@ ThisBuild / pomIncludeRepository := { _ => false }
 ThisBuild / publishTo := Some("releases" at "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
 ThisBuild / publishMavenStyle := true
 
-version := "0.0.3"
+version := sys.env.getOrElse("CI_COMMIT_TAG", "0.0.1-SNAPSHOT").replaceAll("v", "")
