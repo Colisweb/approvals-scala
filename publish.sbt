@@ -26,7 +26,15 @@ ThisBuild / homepage := Some(url("https://gitlab.com/colisweb-open-source/scala/
 
 // Remove all additional repository other than Maven Central from POM
 ThisBuild / pomIncludeRepository := { _ => false }
-ThisBuild / publishTo := Some("releases" at "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
+ThisBuild / publishTo := {
+  val nexus = "https://s01.oss.sonatype.org/"
+  if (isSnapshot.value)
+    Some("snapshots" at nexus + "content/repositories/snapshots")
+  else
+    Some("releases" at nexus + "service/local/staging/deploy/maven2")
+}
+
+
 ThisBuild / publishMavenStyle := true
 
 version := sys.env.getOrElse("CI_COMMIT_TAG", "0.0.1-SNAPSHOT").replaceAll("v", "")
