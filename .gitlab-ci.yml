@@ -22,6 +22,6 @@ publish on gitlab:
     - when: on_success
   stage: publish
   script:
-    - sbt "+publishSigned"
+    - sbt "+sonatypeBundleRelease"
   tags:
     - aws
