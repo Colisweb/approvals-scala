@@ -11,5 +11,4 @@ lazy val pprint = "com.lihaoyi" %% "pprint" % "0.6.4"
 lazy val scalaTest = "org.scalatest" %% "scalatest" % "3.2.7"
 lazy val approvalsJava = "com.github.writethemfirst" % "approvals-java" % "0.13.1"
 
-
 Global / onChangedBuildSource := ReloadOnSourceChanges
