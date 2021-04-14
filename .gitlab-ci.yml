@@ -1,27 +1,17 @@
 include:
   - 'https://gitlab.com/colisweb-open-source/ci-common/raw/v9.1.1/templates/scala.yml'
 
-test approvals-scala:
-  extends: .sbt-test
-  tags: []
-  before_script: []
-
-# deactivated, strange behaviour with scalatest 3.2.0
-#unused-dependencies:
-#  extends: .sbt-unused-dependencies
-#  tags: []
-#  before_script: []
-
 version:
   extends: .version
   tags: []
 
 publish on gitlab:
+  extends: .rules-except-for-tags
+  tags:
+    - aws
   stage: publish
-  only:
-    - master
   script:
-    - sbt "+ publish"
+    - sbt "+publishSigned"
 
 image: hseeberger/scala-sbt:11.0.4_1.3.2_2.12.10
 variables:
