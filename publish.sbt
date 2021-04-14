@@ -19,7 +19,7 @@ ThisBuild / developers := List(
   )
 )
 
-ThisBuild / credentials += Credentials(Path.userHome / ".sbt" / "sonatype_credentials")
+ThisBuild / credentials += Credentials(Path(".") / ".." / "sonatype_credentials")
 ThisBuild / description := "Some description about your project."
 ThisBuild / licenses := Seq("GPL-3.0" -> url("https://opensource.org/licenses/GPL-3.0"))
 ThisBuild / homepage := Some(url("https://gitlab.com/colisweb-open-source/scala/approvals-scala"))
