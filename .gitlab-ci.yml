@@ -25,6 +25,7 @@ publish on gitlab:
     - echo $SONATYPE_CREDENTIALS > ../sonatype_credentials
     - ls -la
     - ls -la ..
+    - cat ../sonatype_credentials
     - sbt "+publishSigned"
   tags:
     - aws
