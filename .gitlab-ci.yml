@@ -22,10 +22,7 @@ publish on gitlab:
     - when: on_success
   stage: publish
   script:
-    - echo $SONATYPE_CREDENTIALS > ../sonatype_credentials
-    - ls -la
-    - ls -la ..
-    - cat ../sonatype_credentials
+    - cat $SONATYPE_CREDENTIALS
     - sbt "+publishSigned"
   tags:
     - aws
