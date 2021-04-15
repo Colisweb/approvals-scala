@@ -45,7 +45,7 @@ ThisBuild / developers := List(
 )
 
 
-ThisBuild / description := "Some description about your project."
+ThisBuild / description := "Approvals-Scala is a lightweight open source assertion/verification library to facilitate unit testing. It alleviates the burden of hand-writing assertions."
 ThisBuild / licenses := Seq("GPL-3.0" -> url("https://opensource.org/licenses/GPL-3.0"))
 ThisBuild / homepage := Some(url("https://gitlab.com/colisweb-open-source/scala/approvals-scala"))
 
