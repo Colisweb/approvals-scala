@@ -1,5 +1,5 @@
 include:
-  - 'https://gitlab.com/colisweb-open-source/ci-common/raw/v13.0.0/templates/scala.yml'
+  - 'https://colisweb-open-source.gitlab.io/ci-common/templates/scala.yml'
 
 compile approvals-scala:
   extends: .sbt-compile-cross
@@ -15,8 +15,6 @@ version approvals-scala:
     - aws
 
 publish approvals-scala:
-  extends: .bintray-publish
-  script:
-    - sbt ";+publishSigned ;sonatypeBundleRelease"
+  extends: .sonatype-publish
   tags:
     - aws
