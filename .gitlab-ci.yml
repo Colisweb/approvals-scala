@@ -19,9 +19,10 @@ before_script:
 
 publish on gitlab:
   rules:
-    - when: on_success
+    - if: '$CI_COMMIT_TAG != null'
+      when: on_success
   stage: publish
   script:
-    - sbt "+sonatypeBundleRelease"
+    - sbt ";+publishSigned ;sonatypeBundleRelease"
   tags:
     - aws
