@@ -2,14 +2,14 @@
 sonatypeCredentialHost := "s01.oss.sonatype.org"
 sonatypeRepository := "https://s01.oss.sonatype.org/service/local"
 
-credentials += Credentials(
+ThisBuild / credentials += Credentials(
   "Sonatype Nexus Repository Manager",
   "s01.oss.sonatype.org",
   sys.env.getOrElse("SONATYPE_USERNAME", "unused"),
   sys.env.getOrElse("SONATYPE_PASSWORD", "unused")
 )
 
-version := sys.env.getOrElse("CI_COMMIT_TAG", "0.0.1-SNAPSHOT").replaceAll("v", "")
+ThisBuild / version := sys.env.getOrElse("CI_COMMIT_TAG", "0.0.1-SNAPSHOT").replaceAll("v", "")
 
 publishConfiguration := publishConfiguration.value.withOverwrite(true)
 publishLocalConfiguration := publishLocalConfiguration.value.withOverwrite(true)
@@ -48,4 +48,3 @@ ThisBuild / developers := List(
 ThisBuild / description := "Approvals-Scala is a lightweight open source assertion/verification library to facilitate unit testing. It alleviates the burden of hand-writing assertions."
 ThisBuild / licenses := Seq("GPL-3.0" -> url("https://opensource.org/licenses/GPL-3.0"))
 ThisBuild / homepage := Some(url("https://gitlab.com/colisweb-open-source/scala/approvals-scala"))
-
