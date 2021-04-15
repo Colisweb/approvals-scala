@@ -34,14 +34,16 @@ ThisBuild / scmInfo := Some(
     "scm:git@gitlab.com:colisweb-open-source/scala/approvals-scala.git"
   )
 )
+
 ThisBuild / developers := List(
   Developer(
-    id    = "LitlBro",
-    name  = "colas mombrun",
-    email = "colas.mombrun@colisweb.com",
-    url   = url("https://gitlab.com/LitlBro")
+    id = "tyrcho",
+    name = "Michel Daviot",
+    email = "tyrcho@colisweb.com",
+    url = url("https://github.com/tyrcho")
   )
 )
+
 
 ThisBuild / description := "Some description about your project."
 ThisBuild / licenses := Seq("GPL-3.0" -> url("https://opensource.org/licenses/GPL-3.0"))
