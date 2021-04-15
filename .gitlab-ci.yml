@@ -1,27 +1,19 @@
-workflow:
-  rules:
-    - if: '$CI_MERGE_REQUEST_ID != null'
-      when: never
-    - when: always
+include:
+  - 'https://gitlab.com/colisweb-open-source/ci-common/raw/v13.0.0/templates/scala.yml'
 
-stages:
-  - publish
+test approvals-scala:
+  extends: .sbt-test
+  tags:
+   - aws
+  before_script: []
 
-image: hseeberger/scala-sbt:11.0.4_1.3.2_2.12.10
+version:
+  extends: .version
+  tags:
+    - aws
 
-before_script:
-  - gpg --import  <(echo "$GITLAB_PGP_PRIVATE_KEY")
-  - export APPLICATION=${APPLICATION:-"$(echo $CI_PROJECT_NAME | tr '[:upper:]' '[:lower:]')"}
-  - export DOCKER_IMAGE=$DOCKER_REGISTRY/$APPLICATION
-  - export DOCKER_IMAGE_SHA=$DOCKER_IMAGE:${CI_COMMIT_SHORT_SHA}
-  - export DOCKER_IMAGE_VERSION=$DOCKER_IMAGE:${VERSION}
-
-
-publish on gitlab:
-  rules:
-    - if: '$CI_COMMIT_TAG != null'
-      when: on_success
-  stage: publish
+publish approvals:
+  extends: .bintray-publish
   script:
     - sbt ";+publishSigned ;sonatypeBundleRelease"
   tags:
