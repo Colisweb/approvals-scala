@@ -70,3 +70,4 @@ local.*
 .gitsecret/keys/random_seed
 !*.secret
 secrets-env.sh
+.bsp
