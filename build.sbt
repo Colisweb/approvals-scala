@@ -4,7 +4,6 @@ crossScalaVersions := List("2.12.13", "2.13.5")
 
 libraryDependencies ++= Seq(scalaTest, approvalsJava, pprint)
 
-resolvers += Resolver.bintrayRepo("writethemfirst", "maven")
 resolvers += Resolver.mavenLocal
 
 lazy val pprint = "com.lihaoyi" %% "pprint" % "0.6.4"
