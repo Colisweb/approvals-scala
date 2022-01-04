@@ -9,8 +9,8 @@ class Demo extends FixtureAnyFlatSpec with Approbation {
   it should "approve a case class" in { approver =>
     approver.verify(Seq(
       Person("John Doe", Address("calle Alvarez", 166)),
-      Person("John Doe", Address("calle Alvarez", 166)),
-      Person("John Doe", Address("calle Alvarez", 166)),
+        Person(" 你好 ( ni hao / nĭ hăo )", Address("12 €", 166)),
+      Person("Martin Dupré", Address("calle Alvarez", 166)),
     ))
   }
 }
