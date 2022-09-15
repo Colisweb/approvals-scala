@@ -1,6 +1,6 @@
 name := "approvals-scala"
 
-crossScalaVersions := List("2.12.16", "2.13.4", "3.1.0")
+crossScalaVersions := List("2.12.16", "2.13.4", "3.1.3")
 
 libraryDependencies ++= Seq(scalaTest, approvalsJava, pprint)
 
