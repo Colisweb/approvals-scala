@@ -6,7 +6,7 @@ libraryDependencies ++= Seq(scalaTest, approvalsJava, pprint)
 
 resolvers += Resolver.mavenLocal
 
-lazy val pprint        = "com.lihaoyi"   %% "pprint"         % "0.8.0"
+lazy val pprint        = "com.lihaoyi"   %% "pprint"         % "0.8.1"
 lazy val scalaTest     = "org.scalatest" %% "scalatest"      % "3.2.14"
 lazy val approvalsJava = "com.colisweb"   % "approvals-java" % "0.13.4"
 ThisBuild / pushRemoteCacheTo := Some(
