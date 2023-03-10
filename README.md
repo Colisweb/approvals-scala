@@ -43,6 +43,15 @@ resolvers += Resolver.bintrayRepo("writethemfirst", "maven")
 libraryDependencies += "com.github.writethemfirst" % "approvals-scala" % "1.0.1"
 ```
 
+### Multi-modules project
+
+If you use this library in a project with several modules, you likely want to store approved files in folders relative to the appropriate submodule.
+
+In order for approvals to detect which module is currently tested, you need the sbt JVM to be forked for each module :
+
+```scala
+ThisBuild / Test / fork := true
+```
 
 ## Sample project
 
