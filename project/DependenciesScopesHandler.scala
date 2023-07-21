@@ -1,1 +1,1 @@
-../scala-common/DependenciesScopesHandler.scala
+../scala-common/scala/DependenciesScopesHandler.scala

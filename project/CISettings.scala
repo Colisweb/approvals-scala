@@ -1,1 +1,1 @@
-../scala-common/CISettings.scala
+../scala-common/scala/CISettings.scala
